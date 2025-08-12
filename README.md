@@ -417,13 +417,3 @@ python yolo_to_coco_optimized.py --yolo_path final_dataset/ --coco_path coco_fin
 3. **라이브러리 누락**: pip를 사용해 필요한 라이브러리를 설치하세요.
 
 ---
-
-## 📞 지원
-
-문제가 발생하거나 기능 개선 제안이 있으시면 이슈를 등록해 주세요.
-
----
-
-## 📝 라이센스
-
-이 프로젝트는 MIT 라이센스를 따릅니다.
