@@ -1,0 +1,116 @@
+<!---
+@File: index.html
+@Date: 2025-08-01
+@Author: SGM
+@Brief: Eye 웹 서버
+@section MODIFYINFO 수정정보
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageGenerator</title>
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="static/css/jquery.json-viewer.css"
+      type="text/css" />
+  </head>
+  <body>
+    <div class="title_zone">
+      <span class="title">AI Image Generator</span>
+    </div>
+    
+    <!-- API 엔드포인트 설정 영역 -->
+    <div class="api_config_zone">
+      <div class="config_header">
+        <span class="config_title">API 설정</span>
+        <button id="toggle_config_btn" class="toggle_btn">▼</button>
+      </div>
+      <div id="config_content" class="config_content" style="display: none;">
+        <div class="current_api_info">
+          <div class="api_status_line">
+            <span>현재 API: </span>
+            <span id="current_api_url">로딩중...</span>
+          </div>
+          <div class="connection_status">
+            <div class="status_indicator">
+              <div class="status_dot" id="status_dot"></div>
+              <span id="connection_status_text">연결 확인 중...</span>
+            </div>
+            <button id="refresh_connection_btn" class="refresh_btn" title="연결 상태 새로고침">
+              🔄
+            </button>
+          </div>
+        </div>
+        <div class="predefined_endpoints">
+          <span class="endpoints_title">사전 정의된 엔드포인트:</span>
+          <div id="endpoint_buttons" class="endpoint_buttons">
+            <!-- 버튼들이 동적으로 추가될 예정 -->
+          </div>
+        </div>
+        <div class="custom_endpoint">
+          <span>커스텀 URL:</span>
+          <input type="text" id="custom_url_input" placeholder="http://192.168.x.x:port/api/..." />
+          <button id="set_custom_url_btn" class="config_btn">적용</button>
+        </div>
+      </div>
+    </div>
+    <div class="img_generator_model_zone_1">
+      <span class="model_name">AI Image Generator</span>
+      <div>
+        <input
+          type="text"
+          id="input_txt_box"
+          class="input_txt_box"
+          placeholder="입력하세요." />
+      </div>
+      <div class="select_zone">
+        <label for="model_type_select">Model Type:</label>
+        <select id="model_type_select">
+          <option value="b32">b32</option>
+          <option value="b16">b16</option>
+          <option value="l14" selected>l14</option>
+          <option value="l14_336">l14_336</option>
+        </select>
+        <label for="index_type_select">Index Type:</label>
+        <select id="index_type_select">
+          <option value="l2">l2</option>
+          <option value="cos">cos</option>
+        </select>
+        <label for="search_num_input">Search Num:</label>
+        <input type="number" id="search_num_input" value="4" min="1" max="10" />
+      </div>
+      <div id="error_zone" class="error_zone"></div>
+      <div class="generator_btn_zone">
+        <button id="generator_btn" class="generator_btn">Request</button>
+      </div>
+      <div id="loading_zone" style="display: none">Generating...</div>
+      <div class="result_container">
+        <div id="query_image_zone" class="query_image_zone"></div>
+        <div id="result_image_zone" class="result_image_zone"></div>
+        <pre id="json_viewer" class="json_viewer"></pre>
+      </div>
+    </div>
+    <script src="static/js/jquery.json-viewer.min.js"></script>
+
+    <!-- 상수 및 설정 -->
+    <script src="static/js/const.js"></script>
+
+    <!-- 모듈들 (순서 중요) -->
+    <script src="static/js/modules/stateManager.js"></script>
+    <script src="static/js/modules/apiClient.js"></script>
+    <script src="static/js/modules/uiManager.js"></script>
+    <script src="static/js/modules/apiConfigManager.js"></script>
+    <script src="static/js/modules/imageGenerator.js"></script>
+
+    <!-- 초기화 -->
+    <script src="static/js/init.js"></script>
+  </body>
+</html>

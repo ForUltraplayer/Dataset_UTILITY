@@ -1,0 +1,6 @@
+TRAIN_FOLDER_NAME = 'train'
+VALID_FOLDER_NAME = 'valid'
+TEST_FOLDER_NAME = 'test'
+
+IMAGES_FOLDER_NAME = 'images'
+LABELS_FOLDER_NAME = 'labels'

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(true)",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}

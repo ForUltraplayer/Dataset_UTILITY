@@ -1,0 +1,506 @@
+/* static/css/style.css
+ * 2025-08-04 수정 – .result_block 스타일 추가
+ */
+
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --border-color: #e0e0e0;
+    --border-radius: 5px;
+    --border-radius-lg: 10px;
+    --max-width: 1200px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    color: #444;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+    padding: 20px; /* 전체 여백 추가 */
+    box-sizing: border-box;
+}
+
+.title_zone {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #323232;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.img_generator_model_zone_1 {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    margin: 20px auto; /* 중앙 정렬 */
+    box-shadow: var(--box-shadow-lg);
+    width: 100%;
+    max-width: var(--max-width);
+    text-align: center;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+}
+
+.model_name {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.input_txt_box {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.select_zone {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.select_zone label,
+.select_zone select,
+.select_zone input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.generator_btn_zone {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.generator_btn {
+    background-color: #646464;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error_zone {
+    color: red;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.result_container {
+    margin-top: 20px;
+}
+
+/* ---- 이미지 출력 영역 ---- */
+
+.query_image_zone {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.query_image {
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+.result_image_zone {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* 이미지 + 매칭률 묶음 */
+.result_block {
+    text-align: center;
+    max-width: 200px;
+    flex-grow: 1; /* 공간이 남으면 늘어나도록 */
+    flex-shrink: 1; /* 공간이 부족하면 줄어들도록 */
+    flex-basis: calc(20% - 16px); /* 5개씩 표시 (20% x 5 = 100%) */
+}
+
+.result_image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result_percent {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.json_viewer {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    text-align: left; /* JSON 뷰어 텍스트 왼쪽 정렬 */
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* ---- API 설정 영역 ---- */
+
+.api_config_zone {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 15px;
+    margin: 10px auto 20px auto;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: var(--max-width);
+    box-sizing: border-box;
+}
+
+.config_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.config_title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.toggle_btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    color: #555;
+}
+
+.config_content {
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 10px;
+}
+
+.current_api_info {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    border: 1px solid #e9ecef;
+}
+
+.api_status_line {
+    margin-bottom: 8px;
+}
+
+.api_status_line span:first-child {
+    font-weight: bold;
+}
+
+.connection_status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.status_indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status_dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* 연결 상태별 스타일 */
+.status_dot.connected {
+    background-color: var(--success-color);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+}
+
+.status_dot.disconnected {
+    background-color: var(--error-color);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+}
+
+.status_dot.checking {
+    background-color: var(--warning-color);
+    animation: pulse 1.5s infinite;
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(255, 193, 7, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+/* 성공/실패 애니메이션 */
+@keyframes success-flash {
+    0% { background-color: var(--success-color); }
+    50% { background-color: #20c997; }
+    100% { background-color: var(--success-color); }
+}
+
+@keyframes error-flash {
+    0% { background-color: var(--error-color); }
+    50% { background-color: #e74c3c; }
+    100% { background-color: var(--error-color); }
+}
+
+.status_dot.flash-success {
+    animation: success-flash 0.6s ease-in-out;
+}
+
+.status_dot.flash-error {
+    animation: error-flash 0.6s ease-in-out;
+}
+
+#connection_status_text {
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#connection_status_text.connected {
+    color: var(--success-color);
+}
+
+#connection_status_text.disconnected {
+    color: var(--error-color);
+}
+
+#connection_status_text.checking {
+    color: #856404;
+}
+
+.refresh_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.refresh_btn:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: rotate(180deg);
+}
+
+.refresh_btn.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.predefined_endpoints {
+    margin-bottom: 15px;
+}
+
+.endpoints_title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+.endpoint_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.endpoint_btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.endpoint_btn:hover {
+    background-color: #0056b3;
+}
+
+.endpoint_btn.active {
+    background-color: var(--success-color);
+}
+
+.custom_endpoint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom_endpoint span {
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+#custom_url_input {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.config_btn {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.config_btn:hover {
+    background-color: #218838;
+}
+
+/* --- Media Queries --- */
+
+/* Small screens (e.g., mobile phones) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* 모바일에서는 패딩 줄임 */
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .img_generator_model_zone_1 {
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .api_config_zone {
+        margin: 5px auto 15px auto;
+        padding: 12px;
+    }
+
+    .model_name {
+        font-size: 18px;
+    }
+
+    .input_txt_box,
+    .select_zone label,
+    .select_zone select,
+    .select_zone input[type="number"],
+    .generator_btn,
+    .error_zone,
+    .result_percent {
+        font-size: 13px;
+    }
+
+    .select_zone {
+        flex-direction: column; /* 세로로 쌓이도록 */
+        align-items: center;
+    }
+
+    .result_block {
+        flex-basis: calc(50% - 16px); /* 두 개씩 표시 */
+        max-width: calc(50% - 16px);
+    }
+
+    .query_image {
+        max-width: 200px;
+    }
+}
+
+/* Medium screens (e.g., tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    .img_generator_model_zone_1 {
+        margin: 15px auto;
+        padding: 25px;
+    }
+
+    .api_config_zone {
+        margin: 8px auto 18px auto;
+    }
+
+    .result_block {
+        flex-basis: calc(33.33% - 16px); /* 세 개씩 표시 */
+        max-width: calc(33.33% - 16px);
+    }
+}
+
+/* Large screens (e.g., desktops, FHD) */
+@media (min-width: 1025px) {
+    .result_block {
+        flex-basis: calc(20% - 16px); /* 5개씩 표시 */
+        max-width: calc(20% - 16px);
+    }
+}
